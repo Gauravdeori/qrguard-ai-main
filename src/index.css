@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 4%;
+    --foreground: 150 80% 85%;
+
+    --card: 220 18% 8%;
+    --card-foreground: 150 60% 80%;
+
+    --popover: 220 18% 8%;
+    --popover-foreground: 150 60% 80%;
+
+    --primary: 150 100% 45%;
+    --primary-foreground: 220 20% 4%;
+
+    --secondary: 185 80% 40%;
+    --secondary-foreground: 220 20% 4%;
+
+    --muted: 220 15% 12%;
+    --muted-foreground: 150 20% 50%;
+
+    --accent: 150 100% 45%;
+    --accent-foreground: 220 20% 4%;
+
+    --destructive: 0 85% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --warning: 45 100% 50%;
+    --warning-foreground: 220 20% 4%;
+
+    --safe: 150 100% 45%;
+    --safe-foreground: 220 20% 4%;
+
+    --suspicious: 45 100% 50%;
+    --dangerous: 0 85% 55%;
+
+    --border: 150 30% 15%;
+    --input: 220 15% 12%;
+    --ring: 150 100% 45%;
+
+    --radius: 0.75rem;
+
+    --glow-primary: 0 0 20px hsl(150 100% 45% / 0.3);
+    --glow-danger: 0 0 20px hsl(0 85% 55% / 0.3);
+    --glow-warning: 0 0 20px hsl(45 100% 50% / 0.3);
+
+    --sidebar-background: 220 18% 6%;
+    --sidebar-foreground: 150 60% 80%;
+    --sidebar-primary: 150 100% 45%;
+    --sidebar-primary-foreground: 220 20% 4%;
+    --sidebar-accent: 220 15% 12%;
+    --sidebar-accent-foreground: 150 60% 80%;
+    --sidebar-border: 150 30% 15%;
+    --sidebar-ring: 150 100% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-mono;
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+  .glow-danger {
+    box-shadow: var(--glow-danger);
+  }
+  .glow-warning {
+    box-shadow: var(--glow-warning);
+  }
+  .text-glow {
+    text-shadow: 0 0 10px hsl(150 100% 45% / 0.5);
+  }
+  .scanline {
+    background: linear-gradient(
+      transparent 50%,
+      hsl(150 100% 45% / 0.03) 50%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+  }
+  .cyber-grid {
+    background-image:
+      linear-gradient(hsl(150 100% 45% / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(150 100% 45% / 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px hsl(150 100% 45% / 0.3); }
+  50% { box-shadow: 0 0 25px hsl(150 100% 45% / 0.6); }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
